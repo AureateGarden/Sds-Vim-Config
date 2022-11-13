@@ -1,29 +1,26 @@
 vim9script
 
 import "~/.vim/config/init.vim" as Initer
+import "~/.vim/config/plugConfig.vim"
 
 var plugConfigPathRoot = Initer.GetConfigRootPath() .. 'plugConfig/'
 var vimScriptExt = '.vim'
 
-var plugDic = {
-    'frazrepo/vim-rainbow': {enable: true, config: 'rainbow'},
-    'morhetz/gruvbox': {enable: true, config: 'gruvbox'},
-    'preservim/nerdtree': {enable: true, config: 'nerdtree'},
-    'easymotion/vim-easymotion': {enable: true, config: 'easymotion'},
-    'ycm-core/YouCompleteMe': {enable: false, config: 'ycm'},
-    'vim-airline/vim-airline': {enable: true, config: 'airline'},
-}
-
 call plug#begin()
-for [key, value] in items(plugDic)
-    if value.enable == false
+for key in sort(keys(plugConfig.Data))
+    var value = plugConfig.Data[key]
+    if has_key(value, 'enable') && value.enable == false
         continue
     endif
-    plug#(key)
+    if has_key(value, 'args')
+        plug#(key, value.args)
+    else
+        plug#(key)
+    endif
 endfor
 call plug#end()
 
-for [key, value] in items(plugDic)
+for [key, value] in items(plugConfig.Data)
     var fileName = value.config .. vimScriptExt
     var fileObj = findfile(plugConfigPathRoot .. fileName, Initer.GetConfigRootPath())
     if fileObj == null

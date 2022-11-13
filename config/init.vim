@@ -14,6 +14,7 @@ var vimScriptExt = '.vim'
 var configFiles = [
     'base',
     'mapping',
+    'plugConfig',
     'pluging',
 ]
 
