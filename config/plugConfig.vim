@@ -1,9 +1,27 @@
 vim9script
 
+export var PlugType = {
+    'Theme': 1,
+    'Other': 2,
+}
+
 export var Data = {
+# Themes Start
     'morhetz/gruvbox': {
+        type: PlugType.Theme,
+        enable: true,
         config: 'gruvbox'
     },
+    'sonph/onehalf': {
+        type: PlugType.Theme,
+        enable: false,
+        config: 'onehalf',
+        args: {
+            'rtp': 'vim'
+        }
+    },
+# Themes End
+
     'preservim/nerdtree': {
         config: 'nerdtree'
     },
@@ -23,7 +41,6 @@ export var Data = {
         config: 'easymotion'
     },
     'neoclide/coc.nvim': {
-        enable: true,
         config: 'coc',
         args: {
             'branch': 'release'

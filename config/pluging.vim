@@ -20,11 +20,18 @@ for key in sort(keys(plugConfig.Data))
 endfor
 call plug#end()
 
+var enabledTheme = false
+
 for [key, value] in items(plugConfig.Data)
     var fileName = value.config .. vimScriptExt
     var fileObj = findfile(plugConfigPathRoot .. fileName, Initer.GetConfigRootPath())
-    if fileObj == null
+    if fileObj == null || (has_key(value, 'enable') && value.enable == false)
         continue
     endif
-    execute 'source' plugConfigPathRoot .. fileName
+    if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme && !enabledTheme
+        enabledTheme = true
+        execute 'source' plugConfigPathRoot .. fileName
+    else
+        execute 'source' plugConfigPathRoot .. fileName
+    endif
 endfor
