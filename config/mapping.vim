@@ -1,5 +1,5 @@
 " set leader key to <Space>
-let mapleader = "\ "
+let mapleader = "\<Space>"
 
 " fast refresh .vimrc
 nnoremap <Leader>R :source ~/.vim/vimrc<CR>
@@ -22,12 +22,14 @@ noremap <C-h> 0
 noremap <C-l> $
 
 " delete text without register
-nnoremap dd "_dd
+nnoremap d "_d
+nnoremap D "_D
 nnoremap x "_x
 nnoremap X "_X
 nnoremap s "_s
 nnoremap S "_S
 nnoremap c "_c
+nnoremap C "_C
 
 " resize window
 nnoremap <C-Left> :vertical resize +3<CR>
@@ -42,4 +44,3 @@ noremap <C-y> "+y
 
 " paste line settings.
 noremap <C-p> "+p
-

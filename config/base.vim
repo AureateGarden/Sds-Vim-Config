@@ -8,8 +8,11 @@ set nocompatible
 set number
 set relativenumber
 
-# set cursorline
+# cursor settings.
 set cursorline
+# set cursorcolumn
+# set guicursor
+
 
 # syntax on.
 syntax on
