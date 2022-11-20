@@ -9,16 +9,18 @@ export var Data = {
 # Themes Start
     'morhetz/gruvbox': {
         type: PlugType.Theme,
-        enable: true,
+        enable: false,
         config: 'gruvbox'
     },
-    'sonph/onehalf': {
+    'chriskempson/base16-vim': {
+        type: PlugType.Theme,
+        enable: true,
+        config: 'base16-vim'
+    },
+    'gosukiwi/vim-atom-dark': {
         type: PlugType.Theme,
         enable: false,
-        config: 'onehalf',
-        args: {
-            'rtp': 'vim'
-        }
+        config: 'vim-atom-dark'
     },
 # Themes End
 
@@ -40,16 +42,16 @@ export var Data = {
     'easymotion/vim-easymotion': {
         config: 'easymotion'
     },
-    'neoclide/coc.nvim': {
-        config: 'coc',
-        args: {
-            'branch': 'release'
-        },
-    },
     'tpope/vim-surround': {
         config: 'surround'
     },
     'dense-analysis/ale': {
         config: 'ale'
+    },
+    'neoclide/coc.nvim': {
+        config: 'coc',
+        args: {
+            'branch': 'release'
+        },
     },
 }

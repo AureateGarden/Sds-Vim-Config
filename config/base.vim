@@ -27,3 +27,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+
+if exists('+termguicolors')
+    set termguicolors
+else
+    echo "This version do not support termguicolors!"
+endif

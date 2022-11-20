@@ -1,27 +1,29 @@
-" set leader key to <Space>
-let mapleader = "\<Space>"
+vim9script
 
-" fast refresh .vimrc
+# set leader key to <Space>
+g:mapleader = "\<Space>"
+
+# fast refresh .vimrc
 nnoremap <Leader>R :source ~/.vim/vimrc<CR>
 
-" [Tips]: You can use <number> <C-d>|<C-u> to resize the scroll length.
-" change half page scroll from <C-d> & <C-u> to J & K
+# [Tips]: You can use <number> <C-d>|<C-u> to resize the scroll length.
+# change half page scroll from <C-d> & <C-u> to J & K
 noremap J <C-d>
 noremap K <C-u>
-" remap J & K to Y & U
+# remap J & K to Y & U
 noremap Y J
 noremap P K
-" change single line scroll from <C-e> & <C-y> to <C-j> & <C-k>
+# change single line scroll from <C-e> & <C-y> to <C-j> & <C-k>
 noremap <C-j> <C-e>
 noremap <C-k> <C-y>
-" change single line head and end without space navigation from ^ & $ to H & Leader
+# change single line head and end without space navigation from ^ & $ to H & Leader
 noremap H ^
 noremap L g_
-" change single line head and end with space navigation from 0 & $ to <C-h> & <C-l>
+# change single line head and end with space navigation from 0 & $ to <C-h> & <C-l>
 noremap <C-h> 0
 noremap <C-l> $
 
-" delete text without register
+# delete text without register
 nnoremap d "_d
 nnoremap D "_D
 nnoremap x "_x
@@ -31,18 +33,18 @@ nnoremap S "_S
 nnoremap c "_c
 nnoremap C "_C
 
-" resize window
+# resize window
 nnoremap <M-h> :vertical resize +3<CR>
 nnoremap <M-l> :vertical resize -3<CR>
 nnoremap <M-j> :vertical resize +3<CR>
 nnoremap <M-k> :vertical resize -3<CR>
 
-" hide search
+# hide search
 nnoremap <Leader>/ :nohlsearch<CR>
 
-" yank line without <CR>
+# yank line without <CR>
 nmap yy HvLy
 noremap <C-y> "+y
 
-" paste line settings.
+# paste line settings.
 noremap <C-p> "+p
