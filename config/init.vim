@@ -6,12 +6,11 @@ export def GetConfigRootPath(): string
     return configRootPath
 enddef
 
-execute 'source' GetConfigRootPath() .. 'configUtility.vim'
-
 var configFilePath = '$HOME/.vim/config/'
 var vimScriptExt = '.vim'
 
 var configFiles = [
+    'configUtility',
     'base',
     'mapping',
     'plugConfig',

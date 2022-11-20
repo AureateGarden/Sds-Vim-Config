@@ -32,8 +32,10 @@ nnoremap c "_c
 nnoremap C "_C
 
 " resize window
-nnoremap <C-Left> :vertical resize +3<CR>
-nnoremap <C-Right> :vertical resize -3<CR>
+nnoremap <M-h> :vertical resize +3<CR>
+nnoremap <M-l> :vertical resize -3<CR>
+nnoremap <M-j> :vertical resize +3<CR>
+nnoremap <M-k> :vertical resize -3<CR>
 
 " hide search
 nnoremap <Leader>/ :nohlsearch<CR>
