@@ -24,27 +24,23 @@ noremap <C-h> 0
 noremap <C-l> $
 
 # delete text without register
-nnoremap d "_d
-nnoremap D "_D
-nnoremap x "_x
-nnoremap X "_X
-nnoremap s "_s
-nnoremap S "_S
-nnoremap c "_c
-nnoremap C "_C
-
-# resize window
-nnoremap <M-h> :vertical resize +3<CR>
-nnoremap <M-l> :vertical resize -3<CR>
-nnoremap <M-j> :vertical resize +3<CR>
-nnoremap <M-k> :vertical resize -3<CR>
+nnoremap d "ed
+nnoremap D "eD
+nnoremap x "ex
+nnoremap X "eX
+nnoremap s "es
+nnoremap S "eS
+nnoremap c "ec
+nnoremap C "eC
 
 # hide search
 nnoremap <Leader>/ :nohlsearch<CR>
 
-# yank line without <CR>
-nmap yy HvLy
+# yank line settings.
 noremap <C-y> "+y
 
 # paste line settings.
 noremap <C-p> "+p
+
+# visual whole line without space
+nnoremap val ^vg_
