@@ -8,6 +8,9 @@ set nocompatible
 set number
 set relativenumber
 
+# no wrap line
+set nowrap
+
 # cursor settings.
 set cursorline
 # set cursorcolumn
@@ -15,6 +18,7 @@ set cursorline
 
 
 # syntax on.
+filetype plugin indent on
 syntax on
 
 # search settings.

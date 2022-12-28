@@ -39,6 +39,9 @@ export var Data = {
     'vim-airline/vim-airline': {
         config: 'airline'
     },
+    'vim-airline/vim-airline-themes': {
+        config: 'vim-airline-themes'
+    },
     'easymotion/vim-easymotion': {
         config: 'easymotion'
     },
@@ -54,4 +57,7 @@ export var Data = {
             'branch': 'release'
         },
     },
+    'OmniSharp/Omnisharp-vim': {
+        config: 'Omnisharp-vim',
+    }
 }
