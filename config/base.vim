@@ -9,7 +9,7 @@ set number
 set relativenumber
 
 # no wrap line
-set nowrap
+# set nowrap
 
 # cursor settings.
 set cursorline

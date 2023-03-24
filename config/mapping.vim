@@ -33,6 +33,19 @@ nnoremap S "eS
 nnoremap c "ec
 nnoremap C "eC
 
+vnoremap d "vd
+vnoremap D "vD
+vnoremap x "vx
+vnoremap X "vX
+vnoremap s "vs
+vnoremap S "vS
+vnoremap c "vc
+vnoremap C "vC
+
+noremap y "vy
+
+noremap p "vp
+
 # hide search
 nnoremap <Leader>/ :nohlsearch<CR>
 

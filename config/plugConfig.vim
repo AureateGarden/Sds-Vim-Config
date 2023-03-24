@@ -9,12 +9,12 @@ export var Data = {
 # Themes Start
     'morhetz/gruvbox': {
         type: PlugType.Theme,
-        enable: false,
+        enable: true,
         config: 'gruvbox'
     },
     'chriskempson/base16-vim': {
         type: PlugType.Theme,
-        enable: true,
+        enable: false,
         config: 'base16-vim'
     },
     'gosukiwi/vim-atom-dark': {
@@ -23,7 +23,6 @@ export var Data = {
         config: 'vim-atom-dark'
     },
 # Themes End
-
     'preservim/nerdtree': {
         config: 'nerdtree'
     },

@@ -29,9 +29,11 @@ for [key, value] in items(plugConfig.Data)
         if fileObj == null || (has_key(value, 'enable') && value.enable == false)
             continue
         endif
-        if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme && !enabledTheme
-            enabledTheme = true
-            execute 'source' plugConfigPathRoot .. fileName
+        if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme
+            if !enabledTheme
+                enabledTheme = true
+                execute 'source' plugConfigPathRoot .. fileName
+            endif
         else
             execute 'source' plugConfigPathRoot .. fileName
         endif

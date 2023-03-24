@@ -1,10 +1,19 @@
 vim9script
 
+g:coc_config_home = "~/.vim/config/plugConfig/coc"
+g:coc_data_home = "~/.vim/config/plugConfig/coc/config"
+
+g:coc_global_extensions = [
+    'coc-json',
+    'coc-git',
+    'coc-omnisharp',
+    'coc-clangd',
+]
+
 # May need for vim (not neovim) since coc.nvim calculate byte offset by count
 # utf-8 byte sequence.
 if !($LANG =~ 'UTF-8')
     set encoding=utf-8
-    echo "Here"
 endif
 
 # Some servers have issues with backup files, see #649.
