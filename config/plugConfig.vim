@@ -50,8 +50,12 @@ export var Data = {
     'dense-analysis/ale': {
         config: 'ale'
     },
+    'mg979/vim-visual-multi': {
+        config: 'vim-visual-multi'
+    },
     'neoclide/coc.nvim': {
         config: 'coc',
+        enable: false,
         args: {
             'branch': 'release'
         },

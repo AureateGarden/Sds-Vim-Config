@@ -6,7 +6,7 @@ g:coc_data_home = "~/.vim/config/plugConfig/coc/config"
 g:coc_global_extensions = [
     'coc-json',
     'coc-git',
-    'coc-omnisharp',
+    # 'coc-omnisharp',
     'coc-clangd',
 ]
 
