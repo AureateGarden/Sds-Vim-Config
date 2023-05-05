@@ -1,0 +1,79 @@
+" Vim Settings.
+
+" --- Init Plugin Start ---
+set easymotion
+set surround
+set multicursor
+" --- Init Plugin End ---
+
+" set leader key to <Space>
+let mapleader = "\ "
+
+" line number setting.
+set nu
+set relativenumber
+
+" search settings.
+set incsearch
+set hlsearch
+
+" fast refresh .vimrc
+nnoremap <Leader>R :source ~/.ideavimrc<CR>
+
+" no hlsearch
+noremap <Leader>/ :nohlsearch<CR>
+
+" [Tips]: You can use <number> <C-d>|<C-u> to resize the scroll length.
+" change half page scroll from <C-d> & <C-u> to J & K
+noremap J <C-d>
+noremap K <C-u>
+" remap J & K to Y & U
+noremap Y J
+noremap U K
+" change single line scroll from <C-e> & <C-y> to <C-j> & <C-k>
+noremap <C-j> <C-e>
+noremap <C-k> <C-y>
+" change single line head and end without space navigation from ^ & $ to H & Leader
+noremap H ^
+noremap L g_
+" change single line head and end with space navigation from 0 & $ to <C-h> & <C-l>
+noremap <C-h> 0
+noremap <C-l> $
+
+" delete text with e register
+nnoremap d "ed
+nnoremap D "eD
+nnoremap x "ex
+nnoremap X "eX
+nnoremap s "es
+nnoremap S "eS
+nnoremap c "ec
+nnoremap C "eC
+
+vnoremap d "vd
+vnoremap D "vD
+vnoremap x "vx
+vnoremap X "vX
+vnoremap s "vs
+vnoremap S "vS
+vnoremap c "vc
+vnoremap C "vC
+
+" change normal yank register
+noremap y "vy
+noremap p "vp
+
+" yank line without <CR>
+nnoremap val ^vg_
+
+" yank to system clipboard.
+noremap <C-y> "+y
+
+" paste from system clipboard.
+noremap <C-p> "+p
+
+" [Plugin Setting Start] multiple-cursors
+" noremap <Leader>ms <Plug>(multicursor-ms/)
+" noremap <Leader>mcv <Plug>(multicursor-mcv)
+" noremap <Leader>mcr <Plug>(multicursor-mcr)
+" [Plugin Setting End] multiple-cursors
