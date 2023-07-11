@@ -1,18 +1,20 @@
 vim9script
 
+import "./configUtility.vim" as cfgUtil
+
 # set leader key to <Space>
 g:mapleader = "\<Space>"
 
 # fast refresh .vimrc
-nnoremap <Leader>R :source ~/.vim/vimrc<CR>
+nnoremap <Leader>R :call <SID>cfgUtil.RefreshRC()<CR>
 
 # [Tips]: You can use <number> <C-d>|<C-u> to resize the scroll length.
 # change half page scroll from <C-d> & <C-u> to J & K
 noremap J <C-d>
 noremap K <C-u>
-# remap J & K to Y & U
-noremap Y J
-noremap P K
+# remap J & K to <Leader>J & <Leader>K
+noremap <Leader>J J
+noremap <Leader>K K
 # change single line scroll from <C-e> & <C-y> to <C-j> & <C-k>
 noremap <C-j> <C-e>
 noremap <C-k> <C-y>
@@ -54,6 +56,12 @@ noremap <C-y> "+y
 
 # paste line settings.
 noremap <C-p> "+p
-
 # visual whole line without space
+
 nnoremap val ^vg_
+
+# move line down / up
+set <M-j>=j
+noremap <M-j> V"vdp
+set <M-k>=k
+noremap <M-k> V"vdkP

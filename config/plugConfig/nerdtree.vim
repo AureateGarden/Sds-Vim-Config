@@ -4,4 +4,4 @@ vim9script
 # autocmd VimEnter * NERDTree
 
 # fast toggle NERDtree
-nnoremap <C-d> :NERDTreeToggle<CR>
+nnoremap <Leader>d :NERDTreeToggle<CR>

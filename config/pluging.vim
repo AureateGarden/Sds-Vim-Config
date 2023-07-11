@@ -1,10 +1,22 @@
 vim9script
 
-import "~/.vim/config/init.vim" as Initer
-import "~/.vim/config/plugConfig.vim"
+import "./init.vim" as Initer
+import "./plugConfig.vim"
 
 var plugConfigPathRoot = Initer.GetConfigRootPath() .. 'plugConfig/'
 var vimScriptExt = '.vim'
+
+def ExecutePlugConfig(configFileName: string, showLog: bool = false)
+    var filePath = plugConfigPathRoot .. configFileName
+    try
+        execute 'source' filePath
+        if showLog
+            echo 'Load plugin config: ' .. configFileName .. ' - Successful'
+        endif
+    catch /.*/
+        echo 'Load plugin config: ' .. configFileName .. ' - Failed'
+    endtry
+enddef
 
 call plug#begin()
 for key in sort(keys(plugConfig.Data))
@@ -32,10 +44,10 @@ for [key, value] in items(plugConfig.Data)
         if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme
             if !enabledTheme
                 enabledTheme = true
-                execute 'source' plugConfigPathRoot .. fileName
+                ExecutePlugConfig(fileName)
             endif
         else
-            execute 'source' plugConfigPathRoot .. fileName
+            ExecutePlugConfig(fileName)
         endif
     endif
 endfor

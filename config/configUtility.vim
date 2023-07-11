@@ -1,14 +1,20 @@
 vim9script
 
-var rcPathA = "$HOME/.vimrc"
-var rcPathB = "$HOME/.vim/vimrc"
+var rcFileNameA = ".vimrc"
+var rcFileNameB = "vimrc"
 
-def RefreshRC()
-    if findfile(rcPathA, "$HOME")
-        execute 'source' rcPathA
-    elseif findfile(rcPathB, "$HOME")
-        execute 'source' rcPathB
-    else
-        echo "Can't find user vim config file."
+export def RefreshRC()
+    var pathA = findfile(rcFileNameA, $HOME)
+    if pathA != ""
+        execute "source" pathA
+        return
     endif
+
+    var pathB = findfile(rcFileNameB, $HOME .. "/.vim")
+    if pathB != ""
+        execute "source" pathB
+        return
+    endif
+
+    echo "Can't find user vim config file."
 enddef

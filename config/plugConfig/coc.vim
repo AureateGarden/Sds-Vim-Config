@@ -6,7 +6,7 @@ g:coc_data_home = "~/.vim/config/plugConfig/coc/config"
 g:coc_global_extensions = [
     'coc-json',
     'coc-git',
-    # 'coc-omnisharp',
+    'coc-omnisharp',
     'coc-clangd',
 ]
 
@@ -33,7 +33,7 @@ set signcolumn=yes
 # no select by `"suggest.noselect": true` in your configuration file.
 # NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 # other plugin before putting this into your config.
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <ScriptCmd>CheckBackspace() ? "\<Tab>" : coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 # Make <CR> to accept selected completion item or notify coc.nvim to format
@@ -64,7 +64,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 # Use K to show documentation in preview window.
-nnoremap <silent> <leader>K :call ShowDocumentation()<CR>
+nnoremap <silent> <leader>K <ScriptCmd>ShowDocumentation()<CR>
 
 def ShowDocumentation()
   if CocAction('hasProvider', 'hover')
