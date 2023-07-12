@@ -18,6 +18,17 @@ def ExecutePlugConfig(configFileName: string, showLog: bool = false)
     endtry
 enddef
 
+def GetPlugName(str: string): string
+    return matchstr(str, '[\/].\+$')[1 : -1]
+enddef
+
+def HasPlug(plugName: string): bool
+    if !exists('g:plugs')
+        return false
+    endif
+    return has_key(g:plugs, plugName)
+enddef
+
 call plug#begin()
 for key in sort(keys(plugConfig.Data))
     var value = plugConfig.Data[key]
@@ -33,21 +44,31 @@ endfor
 call plug#end()
 
 var enabledTheme = false
-
 for [key, value] in items(plugConfig.Data)
-    if has_key(value, 'config')
-        var fileName = value.config .. vimScriptExt
-        var fileObj = findfile(plugConfigPathRoot .. fileName, Initer.GetConfigRootPath())
-        if fileObj == null || (has_key(value, 'enable') && value.enable == false)
-            continue
-        endif
-        if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme
-            if !enabledTheme
-                enabledTheme = true
-                ExecutePlugConfig(fileName)
-            endif
-        else
+    var plugName = GetPlugName(key)
+    if !HasPlug(plugName)
+        continue
+    endif
+
+    if !has_key(value, 'config')
+        continue
+    endif
+
+    var fileName = value.config .. vimScriptExt
+    if findfile(plugConfigPathRoot .. fileName, Initer.GetConfigRootPath()) == null
+        continue
+    endif
+
+    if has_key(value, 'enable') && !value.enable
+        continue
+    endif
+
+    if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme
+        if !enabledTheme
+            enabledTheme = true
             ExecutePlugConfig(fileName)
         endif
+    else
+        ExecutePlugConfig(fileName)
     endif
 endfor

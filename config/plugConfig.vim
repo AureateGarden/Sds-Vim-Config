@@ -55,7 +55,6 @@ export var Data = {
     },
     'neoclide/coc.nvim': {
         config: 'coc',
-        enable: true,
         args: {
             'branch': 'release'
         },

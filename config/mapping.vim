@@ -65,3 +65,7 @@ set <M-j>=j
 noremap <M-j> V"vdp
 set <M-k>=k
 noremap <M-k> V"vdkP
+
+# change Tab
+nnoremap <Leader>tn :tabn<CR>
+nnoremap <Leader>tp :tabp<CR>
