@@ -9,8 +9,6 @@ g:OmniSharp_server_use_mono = 1
 # Not use net6.0
 g:OmniSharp_server_use_net6 = 0
 
-# Plug 'dense-analysis/ale'
-
 # Don't autoselect first omnicomplete option, show options even if there is only
 # one (so the preview documentation is accessible). Remove 'preview', 'popup'
 # and 'popuphidden' if you don't want to see any documentation whatsoever.
@@ -27,9 +25,6 @@ else
   # Set desired preview window height for viewing documentation.
   set previewheight=5
 endif
-
-# Tell ALE to use OmniSharp for linting C# files, and no other linters.
-# g:ale_linters = { 'cs': ['OmniSharp'] }
 
 augroup omnisharp_commands
   autocmd!

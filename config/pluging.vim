@@ -30,40 +30,55 @@ def HasPlug(plugName: string): bool
 enddef
 
 call plug#begin()
-for key in sort(keys(plugConfig.Data))
-    var value = plugConfig.Data[key]
-    if has_key(value, 'enable') && value.enable == false
+for data in plugConfig.Data
+    if !has_key(data, 'repo')
         continue
     endif
-    if has_key(value, 'args')
-        plug#(key, value.args)
+
+    if has_key(data, 'enable') && !data.enable
+        continue
+    endif
+
+    var plug = data.repo
+    if has_key(data, 'localPaths')
+        for localPath in data.localPaths
+            if finddir(localPath) != null
+                plug = localPath
+            endif
+        endfor
+    endif
+    if has_key(data, 'args')
+        plug#(plug, data.args)
     else
-        plug#(key)
+        plug#(plug)
     endif
 endfor
 call plug#end()
 
 var enabledTheme = false
-for [key, value] in items(plugConfig.Data)
-    var plugName = GetPlugName(key)
-    if !HasPlug(plugName)
+for data in plugConfig.Data
+    if !has_key(data, 'repo')
         continue
     endif
 
-    if !has_key(value, 'config')
+    if !HasPlug(GetPlugName(data.repo))
         continue
     endif
 
-    var fileName = value.config .. vimScriptExt
+    if !has_key(data, 'config')
+        continue
+    endif
+
+    var fileName = data.config .. vimScriptExt
     if findfile(plugConfigPathRoot .. fileName, Initer.GetConfigRootPath()) == null
         continue
     endif
 
-    if has_key(value, 'enable') && !value.enable
+    if has_key(data, 'enable') && !data.enable
         continue
     endif
 
-    if has_key(value, 'type') && value.type == plugConfig.PlugType.Theme
+    if has_key(data, 'type') && data.type == plugConfig.PlugType.Theme
         if !enabledTheme
             enabledTheme = true
             ExecutePlugConfig(fileName)
