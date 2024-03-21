@@ -16,6 +16,11 @@ set cursorline
 # set cursorcolumn
 # set guicursor
 
+# smooth scroll
+set smoothscroll
+
+# scroll line count
+set scroll=4
 
 # syntax on.
 filetype plugin indent on

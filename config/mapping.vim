@@ -1,12 +1,10 @@
 vim9script
 
-import "./configUtility.vim" as cfgUtil
-
 # set leader key to <Space>
 g:mapleader = "\<Space>"
 
 # fast refresh .vimrc
-nnoremap <Leader>R :call <SID>cfgUtil.RefreshRC()<CR>
+nnoremap <Leader>R :source ~/.vim/vimrc<CR>
 
 # [Tips]: You can use <number> <C-d>|<C-u> to resize the scroll length.
 # change half page scroll from <C-d> & <C-u> to J & K
